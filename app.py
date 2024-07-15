@@ -1,5 +1,4 @@
 import streamlit as st
-import requests
 from langchain.prompts import PromptTemplate
 from langchain.llms import HuggingFaceHub
 from langchain.chains import LLMChain
@@ -11,7 +10,7 @@ prompt = PromptTemplate(template=template, input_variables=["question"])
 
 # Initialize the LLM from Hugging Face
 def initialize_llm(api_key):
-    return HuggingFaceHub(api_key=api_key, model="mistralai/Mistral-7B-Instruct-v0.3")
+    return HuggingFaceHub(huggingfacehub_api_token=api_key, repo_id="mistralai/Mistral-7B-Instruct-v0.3")
 
 # Initialize the LLMChain
 def initialize_chain(api_key):
